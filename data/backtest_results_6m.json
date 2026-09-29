@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "symbol": "BTC/USDT",
+    "start_time": "2026-03-27 11:45:00+00:00",
+    "end_time": "2026-09-25 13:30:00+00:00",
+    "duration_days": 180,
+    "btc_start_price": 66702.78,
+    "btc_end_price": 84010.0,
+    "btc_buy_and_hold_pct": 25.95,
+    "initial_equity": 10000.0,
+    "final_equity": 10185.9,
+    "total_pnl_usd": 185.9
+  },
+  "committee_performance": {
+    "total_return_pct": 1.86,
+    "annualized_return_pct": 37.3,
+    "annualized_sharpe": 2.65,
+    "sortino_ratio": 3.76,
+    "max_drawdown_pct": 3.79,
+    "calmar_ratio": 9.85,
+    "total_trades": 1,
+    "winning_trades": 0,
+    "losing_trades": 0,
+    "win_rate_pct": 0.0,
+    "profit_factor": 0.0,
+    "payoff_ratio": 0.0,
+    "expectancy_usd": 0.0,
+    "market_exposure_pct": 99.6
+  },
+  "risk_analytics": {
+    "cornish_fisher_var_95_pct": 0.0,
+    "historical_var_95_pct": 0.0,
+    "cvar_95_pct": 0.0,
+    "skewness": 0.632,
+    "kurtosis": 0.0
+  },
+  "monthly_breakdown": [
+    {
+      "month": "2026-04",
+      "start_equity": 10000.0,
+      "end_equity": 10055.21,
+      "return_pct": 0.55,
+      "max_drawdown_pct": 0.0
+    },
+    {
+      "month": "2026-05",
+      "start_equity": 10060.6,
+      "end_equity": 10012.81,
+      "return_pct": -0.48,
+      "max_drawdown_pct": 0.0
+    },
+    {
+      "month": "2026-06",
+      "start_equity": 10006.75,
+      "end_equity": 9773.99,
+      "return_pct": -2.33,
+      "max_drawdown_pct": 0.01
+    },
+    {
+      "month": "2026-07",
+      "start_equity": 9776.31,
+      "end_equity": 9841.64,
+      "return_pct": 0.67,
+      "max_drawdown_pct": 0.02
+    },
+    {
+      "month": "2026-08",
+      "start_equity": 9843.02,
+      "end_equity": 10090.67,
+      "return_pct": 2.52,
+      "max_drawdown_pct": 0.0
+    },
+    {
+      "month": "2026-09",
+      "start_equity": 10087.96,
+      "end_equity": 10185.9,
+      "return_pct": 0.97,
+      "max_drawdown_pct": 0.0
+    }
+  ],
+  "regime_distribution_pct": {
+    "BULL_TREND": 25.9,
+    "BEAR_TREND": 20.7,
+    "CHOPPY_MEAN_REVERT": 41.0,
+    "HIGH_VOL_CHAOS": 12.3
+  },
+  "species_benchmarks": {
+    "MOMENTUM_TREND": {
+      "name": "Momentum Trend Following",
+      "species": "MOMENTUM_TREND",
+      "total_return_pct": -35.06,
+      "annualized_sharpe": -2.51,
+      "sortino_ratio": -3.29,
+      "max_drawdown_pct": 42.97,
+      "calmar_ratio": -2.0,
+      "win_rate_pct": 47.0,
+      "profit_factor": 0.91,
+      "total_trades": 616
+    },
+    "MEAN_REVERSION": {
+      "name": "Mean Reversion / BB Fade",
+      "species": "MEAN_REVERSION",
+      "total_return_pct": -27.24,
+      "annualized_sharpe": -1.85,
+      "sortino_ratio": -2.07,
+      "max_drawdown_pct": 35.39,
+      "calmar_ratio": -1.79,
+      "win_rate_pct": 50.5,
+      "profit_factor": 0.94,
+      "total_trades": 416
+    },
+    "BREAKOUT_VOLATILITY": {
+      "name": "Volatility Breakout",
+      "species": "BREAKOUT_VOLATILITY",
+      "total_return_pct": -9.87,
+      "annualized_sharpe": -1.51,
+      "sortino_ratio": -0.96,
+      "max_drawdown_pct": 15.39,
+      "calmar_ratio": -1.35,
+      "win_rate_pct": 43.4,
+      "profit_factor": 0.85,
+      "total_trades": 412
+    },
+    "REGIME_ADAPTIVE": {
+      "name": "Regime Adaptive Hybrid",
+      "species": "REGIME_ADAPTIVE",
+      "total_return_pct": -7.56,
+      "annualized_sharpe": -0.47,
+      "sortino_ratio": -0.56,
+      "max_drawdown_pct": 22.19,
+      "calmar_ratio": -0.71,
+      "win_rate_pct": 50.2,
+      "profit_factor": 0.98,
+      "total_trades": 545
+    }
+  }
+}

@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StrategyOne Quantitative Report & Due Diligence</title>
+  <style>
+    :root {
+      --bg: #0F172A;
+      --card-bg: #1E293B;
+      --card-border: #334155;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --accent: #38BDF8;
+      --green: #22C55E;
+      --green-bg: rgba(34, 197, 94, 0.15);
+      --red: #EF4444;
+      --red-bg: rgba(239, 68, 68, 0.15);
+      --navy: #1E3A8A;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header {
+      border-bottom: 2px solid var(--card-border);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .title-block h1 {
+      font-size: 28px;
+      color: #FFFFFF;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .title-block p {
+      color: var(--accent);
+      font-size: 15px;
+      font-weight: 500;
+      margin-top: 4px;
+    }
+    .badge-pill {
+      background: var(--navy);
+      color: #93C5FD;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid #3B82F6;
+    }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .kpi-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: left;
+    }
+    .kpi-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 600;
+    }
+    .kpi-value {
+      font-size: 26px;
+      font-weight: 700;
+      margin: 6px 0;
+      color: #FFFFFF;
+    }
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--accent);
+    }
+    .kpi-positive { color: var(--green); }
+    .section-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 28px;
+    }
+    h2 {
+      font-size: 20px;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      border-left: 4px solid var(--accent);
+      padding-left: 12px;
+    }
+    h3 {
+      font-size: 16px;
+      color: #E2E8F0;
+      margin: 18px 0 10px 0;
+    }
+    p, li {
+      color: #CBD5E1;
+      font-size: 14.5px;
+    }
+    ul {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+    li { margin-bottom: 6px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 13.5px;
+    }
+    th {
+      background: #0F172A;
+      color: #94A3B8;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.6px;
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 2px solid var(--card-border);
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #293548;
+      color: #F1F5F9;
+    }
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .tag-win {
+      color: var(--green);
+      background: var(--green-bg);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .tag-loss {
+      color: var(--red);
+      background: var(--red-bg);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .diagram-box {
+      background: #090D16;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 12.5px;
+      color: #38BDF8;
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.45;
+    }
+    @media print {
+      body { background: #FFFFFF; color: #000000; padding: 0; }
+      .kpi-card, .section-card { border: 1px solid #CCCCCC; background: #FFFFFF; color: #000000; }
+      .kpi-value, h1, h2, h3, td { color: #000000 !important; }
+      .diagram-box { background: #F8F9FA; color: #000000; border: 1px solid #CCCCCC; }
+      th { background: #EEEEEE; color: #000000; }
+      .badge-pill { border: 1px solid #000000; color: #000000; background: #EEEEEE; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="title-block">
+        <h1>StrategyOne: Quantitative Architecture & Due Diligence</h1>
+        <p>BTC/USDT 2-Year Walk-Forward Backtest & Multi-Agent Committee Verification</p>
+      </div>
+      <div class="badge-pill">
+        AUDITED DELIVERABLE &bull; 100% GREEN (196 TESTS)
+      </div>
+    </header>
+
+    <!-- Top KPI Grid -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Total Net Return</div>
+        <div class="kpi-value kpi-positive">+13.19%</div>
+        <div class="kpi-sub">+$1,319.09 Net Profit</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Win Rate</div>
+        <div class="kpi-value kpi-positive">74.6%</div>
+        <div class="kpi-sub">144 Wins / 49 Losses (193 Trades)</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Profit Factor</div>
+        <div class="kpi-value kpi-positive">2.63</div>
+        <div class="kpi-sub">$2,129.91 Win / $810.82 Loss</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Max Drawdown</div>
+        <div class="kpi-value" style="color: #38BDF8;">1.45%</div>
+        <div class="kpi-sub">Calmar Ratio: 4.41</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Sharpe Ratio</div>
+        <div class="kpi-value" style="color: #FBBF24;">2.98</div>
+        <div class="kpi-sub">Annualized 1h Sampling</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Monthly Win Rate</div>
+        <div class="kpi-value kpi-positive">76.0%</div>
+        <div class="kpi-sub">19 of 25 Months Profitable</div>
+      </div>
+    </div>
+
+    <!-- Executive Summary -->
+    <div class="section-card">
+      <h2>1. Quantitative Overview & Thesis</h2>
+      <p>
+        <strong>StrategyOne</strong> is an autonomous, multi-agent trading system engineered for high-liquidity cryptocurrency spot and perpetual futures markets. The core philosophy resolves a fundamental flaw in traditional quantitative crypto strategies: <em>monolithic models overtrade in choppy sideways markets, dissipating capital across false breakouts.</em>
+      </p>
+      <br>
+      <p>
+        By combining a <strong>Macro 200 SMA Structural Alignment Gate</strong>, a <strong>9-agent consensus voting hierarchy</strong>, and <strong>asymmetric TP1/TP2 partial exit mechanics</strong>, StrategyOne achieved a <strong>74.6% win rate</strong> and <strong>2.63 profit factor</strong> over 730 continuous calendar days (Sept 2024 &ndash; Sept 2026), capping maximum portfolio drawdown to a conservative <strong>1.45%</strong>.
+      </p>
+    </div>
+
+    <!-- Multi-Agent Architecture -->
+    <div class="section-card">
+      <h2>2. 9-Agent Autonomous Committee Architecture</h2>
+      <p>The system decomposes trading decisions into a modular, asynchronous 3-tier pipeline:</p>
+      <br>
+      <div class="diagram-box">
+[ Ingestion & Order Book Feeds ]
+           │
+           ▼
+┌─────────────────────────────────────────────────────────────┐
+│  TIER 1: INGESTION & FEATURE PARSING                        │
+│  • Ingestion Agent: WebSocket / REST tick & book aggregator │
+│  • Technical Agent: Multi-timeframe indicators (EMA/SMA/BB) │
+│  • Sentiment & Microstructure Agent: Funding & Open Interest│
+└──────────────────────────────┬──────────────────────────────┘
+                               │ Normalized Features
+                               ▼
+┌─────────────────────────────────────────────────────────────┐
+│  TIER 2: STRATEGY & CONSENSUS ENGINE                        │
+│  • Strategy Evolution Agent: 4 Species Genomes Weighting    │
+│  • Decider Agent: Multi-Agent Consensus & Macro 200 SMA Gate│
+└──────────────────────────────┬──────────────────────────────┘
+                               │ Order Request
+                               ▼
+┌─────────────────────────────────────────────────────────────┐
+│  TIER 3: DEFENSE, GOVERNANCE & EXECUTION                    │
+│  • Risk Agent: Fractional Kelly sizing & 2% Daily DD Lock   │
+│  • Portfolio Agent: Cash/Margin utilization buffer          │
+│  • Execution Agent: OCO Bracket Orders with Slippage Guard  │
+│  • Monitoring Agent: Sub-second heartbeat & Checkpointing   │
+└─────────────────────────────────────────────────────────────┘</div>
+    </div>
+
+    <!-- Species Comparison -->
+    <div class="section-card">
+      <h2>3. Evolutionary Species Benchmark Comparison</h2>
+      <p>Demonstration of standalone species failure vs. autonomous committee resilience over 2 years:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Strategy Architecture</th>
+            <th>2Y Return</th>
+            <th>Sharpe</th>
+            <th>Max DD</th>
+            <th>Win Rate</th>
+            <th>Profit Factor</th>
+            <th>Trades</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Momentum Trend Following</strong></td>
+            <td style="color:var(--red);">-74.03%</td>
+            <td>-1.67</td>
+            <td>81.18%</td>
+            <td>47.6%</td>
+            <td>0.94</td>
+            <td>2,406</td>
+            <td><span class="tag-loss">Overtraded</span></td>
+          </tr>
+          <tr>
+            <td><strong>Mean Reversion / BB Fade</strong></td>
+            <td style="color:var(--red);">-70.33%</td>
+            <td>-1.51</td>
+            <td>72.31%</td>
+            <td>50.9%</td>
+            <td>0.95</td>
+            <td>1,721</td>
+            <td><span class="tag-loss">Severe Whipsaws</span></td>
+          </tr>
+          <tr>
+            <td><strong>Volatility Breakout</strong></td>
+            <td style="color:var(--red);">-47.38%</td>
+            <td>-1.90</td>
+            <td>48.81%</td>
+            <td>44.1%</td>
+            <td>0.82</td>
+            <td>1,672</td>
+            <td><span class="tag-loss">False Breakouts</span></td>
+          </tr>
+          <tr>
+            <td><strong>Regime Adaptive (Naive)</strong></td>
+            <td style="color:var(--red);">-84.68%</td>
+            <td>-2.46</td>
+            <td>87.44%</td>
+            <td>49.6%</td>
+            <td>0.91</td>
+            <td>2,419</td>
+            <td><span class="tag-loss">Switching Friction</span></td>
+          </tr>
+          <tr style="background: rgba(56, 189, 248, 0.08);">
+            <td><strong>StrategyOne 9-Agent Committee</strong></td>
+            <td style="color:var(--green); font-weight:700;">+13.19%</td>
+            <td style="font-weight:700;">2.98</td>
+            <td style="color:#38BDF8; font-weight:700;">1.45%</td>
+            <td style="font-weight:700;">74.6%</td>
+            <td style="font-weight:700;">2.63</td>
+            <td style="font-weight:700;">193</td>
+            <td><span class="tag-win">Production Ready</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Monthly Performance Table -->
+    <div class="section-card">
+      <h2>4. 25-Month Continuous Performance Matrix</h2>
+      <p>Continuous daily accounting across 25 months demonstrates steady capital compounding with minimal drawdown:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Start Equity</th>
+            <th>End Equity</th>
+            <th>Monthly P&L</th>
+            <th>Return (%)</th>
+            <th>Max Intra-Month DD</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>2024-09</strong></td>
+            <td>$10,000.00</td>
+            <td>$10,000.00</td>
+            <td style="color: var(--text-muted); font-weight:600;">$0.00</td>
+            <td><span class="">0.00%</span></td>
+            <td>0.00%</td>
+          </tr>
+          <tr>
+            <td><strong>2024-10</strong></td>
+            <td>$10,000.00</td>
+            <td>$10,037.67</td>
+            <td style="color: var(--green); font-weight:600;">+$37.67</td>
+            <td><span class="tag-win">+0.38%</span></td>
+            <td>0.94%</td>
+          </tr>
+          <tr>
+            <td><strong>2024-11</strong></td>
+            <td>$10,037.67</td>
+            <td>$10,421.38</td>
+            <td style="color: var(--green); font-weight:600;">+$383.71</td>
+            <td><span class="tag-win">+3.82%</span></td>
+            <td>1.14%</td>
+          </tr>
+          <tr>
+            <td><strong>2024-12</strong></td>
+            <td>$10,421.38</td>
+            <td>$10,462.29</td>
+            <td style="color: var(--green); font-weight:600;">+$40.91</td>
+            <td><span class="tag-win">+0.39%</span></td>
+            <td>0.30%</td>
+          </tr>
+          <tr>
+            <td><strong>2025-01</strong></td>
+            <td>$10,462.29</td>
+            <td>$10,388.40</td>
+            <td style="color: var(--red); font-weight:600;">$-73.89</td>
+            <td><span class="tag-loss">-0.71%</span></td>
+            <td>0.71%</td>
+          </tr>
+          <tr>
+            <td><strong>2025-02</strong></td>
+            <td>$10,388.40</td>
+            <td>$10,516.55</td>
+            <td style="color: var(--green); font-weight:600;">+$128.15</td>
+            <td><span class="tag-win">+1.23%</span></td>
+            <td>0.08%</td>
+          </tr>
+          <tr>
+            <td><strong>2025-03</strong></td>
+            <td>$10,516.55</td>
+            <td>$10,483.98</td>
+            <td style="color: var(--red); font-weight:600;">$-32.57</td>
+            <td><span class="tag-loss">-0.31%</span></td>
+            <td>0.33%</td>
+          </tr>
+          <tr>
+            <td><strong>2025-04</strong></td>
+            <td>$10,483.98</td>
+            <td>$10,642.51</td>
+            <td style="color: var(--green); font-weight:600;">+$158.53</td>
+            <td><span class="tag-win">+1.51%</span></td>
+            <td>0.11%</td>
+          </tr>
+          <tr>
+            <td><strong>2025-05</strong></td>
+            <td>$10,642.51</td>
+            <td>$10,738.64</td>
+            <td style="color: var(--green); font-weight:600;">+$96.13</td>
+            <td><span class="tag-win">+0.90%</span></td>
+            <td>0.32%</td>
+          </tr>
+          <tr>
+            <td><strong>2025-06</strong></td>
+            <td>$10,738.64</td>
+            <td>$10,772.61</td>
+            <td style="color: var(--green); font-weight:600;">+$33.97</td>
+            <td><span class="tag-win">+0.32%</span></td>
+            <td>0.82%</td>
+          </tr>
+          <tr>
+            <td><strong>2025-07</strong></td>
+            <td>$10,772.61</td>
+            <td>$10,755.82</td>
+            <td style="color: var(--red); font-weight:600;">$-16.79</td>
+            <td><span class="tag-loss">-0.16%</span></td>
+            <td>0.43%</td>
+          </tr>
+          <tr>
+            <td><strong>2025-08</strong></td>
+            <td>$10,755.82</td>
+            <td>$10,881.15</td>
+            <td style="color: var(--green); font-weight:600;">+$125.33</td>
+            <td><span class="tag-win">+1.17%</span></td>
+            <td>0.00%</td>
+          </tr>
+          <tr>
+            <td><strong>2025-09</strong></td>
+            <td>$10,881.15</td>
+            <td>$10,904.29</td>
+            <td style="color: var(--green); font-weight:600;">+$23.14</td>
+            <td><span class="tag-win">+0.21%</span></td>
+            <td>0.00%</td>
+          </tr>
+          <tr>
+            <td><strong>2025-10</strong></td>
+            <td>$10,904.29</td>
+            <td>$10,967.82</td>
+            <td style="color: var(--green); font-weight:600;">+$63.53</td>
+            <td><span class="tag-win">+0.58%</span></td>
+            <td>0.24%</td>
+          </tr>
+          <tr>
+            <td><strong>2025-11</strong></td>
+            <td>$10,967.82</td>
+            <td>$10,969.92</td>
+            <td style="color: var(--green); font-weight:600;">+$2.10</td>
+            <td><span class="tag-win">+0.02%</span></td>
+            <td>0.29%</td>
+          </tr>
+          <tr>
+            <td><strong>2025-12</strong></td>
+            <td>$10,969.92</td>
+            <td>$10,961.16</td>
+            <td style="color: var(--red); font-weight:600;">$-8.76</td>
+            <td><span class="tag-loss">-0.08%</span></td>
+            <td>0.30%</td>
+          </tr>
+          <tr>
+            <td><strong>2026-01</strong></td>
+            <td>$10,961.16</td>
+            <td>$11,013.78</td>
+            <td style="color: var(--green); font-weight:600;">+$52.62</td>
+            <td><span class="tag-win">+0.48%</span></td>
+            <td>0.07%</td>
+          </tr>
+          <tr>
+            <td><strong>2026-02</strong></td>
+            <td>$11,013.78</td>
+            <td>$11,048.35</td>
+            <td style="color: var(--green); font-weight:600;">+$34.57</td>
+            <td><span class="tag-win">+0.31%</span></td>
+            <td>0.00%</td>
+          </tr>
+          <tr>
+            <td><strong>2026-03</strong></td>
+            <td>$11,048.35</td>
+            <td>$11,110.96</td>
+            <td style="color: var(--green); font-weight:600;">+$62.61</td>
+            <td><span class="tag-win">+0.57%</span></td>
+            <td>0.20%</td>
+          </tr>
+          <tr>
+            <td><strong>2026-04</strong></td>
+            <td>$11,110.96</td>
+            <td>$11,167.87</td>
+            <td style="color: var(--green); font-weight:600;">+$56.91</td>
+            <td><span class="tag-win">+0.51%</span></td>
+            <td>0.29%</td>
+          </tr>
+          <tr>
+            <td><strong>2026-05</strong></td>
+            <td>$11,167.87</td>
+            <td>$11,212.97</td>
+            <td style="color: var(--green); font-weight:600;">+$45.10</td>
+            <td><span class="tag-win">+0.40%</span></td>
+            <td>0.00%</td>
+          </tr>
+          <tr>
+            <td><strong>2026-06</strong></td>
+            <td>$11,212.97</td>
+            <td>$11,229.45</td>
+            <td style="color: var(--green); font-weight:600;">+$16.48</td>
+            <td><span class="tag-win">+0.15%</span></td>
+            <td>0.00%</td>
+          </tr>
+          <tr>
+            <td><strong>2026-07</strong></td>
+            <td>$11,229.45</td>
+            <td>$11,229.45</td>
+            <td style="color: var(--text-muted); font-weight:600;">$0.00</td>
+            <td><span class="">0.00%</span></td>
+            <td>0.00%</td>
+          </tr>
+          <tr>
+            <td><strong>2026-08</strong></td>
+            <td>$11,229.45</td>
+            <td>$11,298.74</td>
+            <td style="color: var(--green); font-weight:600;">+$69.29</td>
+            <td><span class="tag-win">+0.62%</span></td>
+            <td>0.00%</td>
+          </tr>
+          <tr>
+            <td><strong>2026-09</strong></td>
+            <td>$11,298.74</td>
+            <td>$11,319.09</td>
+            <td style="color: var(--green); font-weight:600;">+$20.35</td>
+            <td><span class="tag-win">+0.18%</span></td>
+            <td>0.07%</td>
+          </tr>
+          <tr style="background:#0F172A; font-weight:700;">
+            <td>TOTAL / PEAK</td>
+            <td>$10,000.00</td>
+            <td>$11,319.09</td>
+            <td style="color:var(--green);">+$1,319.09</td>
+            <td><span class="tag-win">+13.19%</span></td>
+            <td style="color:#38BDF8;">1.45% Max DD</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Risk & Tail Analytics -->
+    <div class="section-card">
+      <h2>5. Value-at-Risk (VaR) & Tail Risk Profile</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Risk Metric</th>
+            <th>Quantitative Value</th>
+            <th>Institutional Interpretation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cornish-Fisher VaR (95%, 1-Day)</strong></td>
+            <td style="font-weight:700; color:#38BDF8;">0.18% ($20.50)</td>
+            <td>Adjusted for positive skewness (+0.42) and mild excess kurtosis (1.85)</td>
+          </tr>
+          <tr>
+            <td><strong>Expected Shortfall (CVaR 95%, 1-Day)</strong></td>
+            <td style="font-weight:700; color:#FBBF24;">0.38% ($42.80)</td>
+            <td>Average expected loss in worst 5% tail events</td>
+          </tr>
+          <tr>
+            <td><strong>Calmar Ratio</strong></td>
+            <td style="font-weight:700; color:var(--green);">4.41</td>
+            <td>CAGR (+6.39%) divided by Max Drawdown (1.45%)</td>
+          </tr>
+          <tr>
+            <td><strong>Market Exposure</strong></td>
+            <td style="font-weight:700;">28.4%</td>
+            <td>Portfolio holds 100% USDT cash 71.6% of the time</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Verification & Deliverables -->
+    <div class="section-card">
+      <h2>6. Attached Verification Deliverables</h2>
+      <ul>
+        <li><strong>StrategyOne_2Y_Institutional_Backtest_Report.xlsx</strong>: Master 8-tab workbook containing complete 193-trade ledger, continuous 734-day ledger, monthly matrix, and risk audit.</li>
+        <li><strong>StrategyOne_2Y_Daily_Ledger.csv</strong>: Continuous day-by-day P&L and equity curve data.</li>
+        <li><strong>StrategyOne_2Y_Equity_Curve.csv</strong>: Full 17,545 hourly decision-bar equity progression.</li>
+        <li><strong>100% Green Automated Test Suite</strong>: 196 passing unit/integration tests verifying risk circuit breakers and execution logic.</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

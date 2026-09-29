@@ -1,0 +1,295 @@
+{
+  "metadata": {
+    "symbol": "BTC/USDT",
+    "start_time": "2024-09-21 12:30:00+00:00",
+    "end_time": "2026-09-24 15:15:00+00:00",
+    "duration_days": 730,
+    "btc_start_price": 63089.98,
+    "btc_end_price": 84125.71,
+    "btc_buy_and_hold_pct": 33.34,
+    "initial_equity": 10000.0,
+    "final_equity": 10194.71,
+    "total_pnl_usd": 194.71
+  },
+  "committee_performance": {
+    "total_return_pct": 1.95,
+    "annualized_return_pct": 16.65,
+    "annualized_sharpe": 1.05,
+    "sortino_ratio": 1.37,
+    "max_drawdown_pct": 6.73,
+    "calmar_ratio": 2.47,
+    "total_trades": 1,
+    "winning_trades": 0,
+    "losing_trades": 0,
+    "win_rate_pct": 0.0,
+    "profit_factor": 0.0,
+    "payoff_ratio": 0.0,
+    "expectancy_usd": 0.0,
+    "market_exposure_pct": 99.5
+  },
+  "risk_analytics": {
+    "cornish_fisher_var_95_pct": 0.0,
+    "historical_var_95_pct": 0.0,
+    "cvar_95_pct": 0.0,
+    "skewness": -0.12,
+    "kurtosis": 0.0
+  },
+  "monthly_breakdown": [
+    {
+      "month": "2024-09",
+      "start_equity": 10000.0,
+      "end_equity": 9972.26,
+      "pnl_usd": -27.74,
+      "return_pct": -0.28,
+      "max_drawdown_pct": 0.43
+    },
+    {
+      "month": "2024-10",
+      "start_equity": 9969.58,
+      "end_equity": 10045.94,
+      "pnl_usd": 76.36,
+      "return_pct": 0.77,
+      "max_drawdown_pct": 0.53
+    },
+    {
+      "month": "2024-11",
+      "start_equity": 10033.48,
+      "end_equity": 10324.96,
+      "pnl_usd": 291.49,
+      "return_pct": 2.91,
+      "max_drawdown_pct": 0.71
+    },
+    {
+      "month": "2024-12",
+      "start_equity": 10317.17,
+      "end_equity": 10294.83,
+      "pnl_usd": -22.34,
+      "return_pct": -0.22,
+      "max_drawdown_pct": 1.57
+    },
+    {
+      "month": "2025-01",
+      "start_equity": 10296.32,
+      "end_equity": 10387.71,
+      "pnl_usd": 91.39,
+      "return_pct": 0.89,
+      "max_drawdown_pct": 1.1
+    },
+    {
+      "month": "2025-02",
+      "start_equity": 10389.73,
+      "end_equity": 10191.91,
+      "pnl_usd": -197.81,
+      "return_pct": -1.9,
+      "max_drawdown_pct": 2.4
+    },
+    {
+      "month": "2025-03",
+      "start_equity": 10206.29,
+      "end_equity": 10172.48,
+      "pnl_usd": -33.81,
+      "return_pct": -0.33,
+      "max_drawdown_pct": 1.63
+    },
+    {
+      "month": "2025-04",
+      "start_equity": 10179.07,
+      "end_equity": 10300.02,
+      "pnl_usd": 120.95,
+      "return_pct": 1.19,
+      "max_drawdown_pct": 1.21
+    },
+    {
+      "month": "2025-05",
+      "start_equity": 10306.76,
+      "end_equity": 10411.75,
+      "pnl_usd": 105.0,
+      "return_pct": 1.02,
+      "max_drawdown_pct": 0.86
+    },
+    {
+      "month": "2025-06",
+      "start_equity": 10406.63,
+      "end_equity": 10439.0,
+      "pnl_usd": 32.37,
+      "return_pct": 0.31,
+      "max_drawdown_pct": 1.13
+    },
+    {
+      "month": "2025-07",
+      "start_equity": 10438.97,
+      "end_equity": 10534.55,
+      "pnl_usd": 95.58,
+      "return_pct": 0.92,
+      "max_drawdown_pct": 0.71
+    },
+    {
+      "month": "2025-08",
+      "start_equity": 10531.19,
+      "end_equity": 10455.83,
+      "pnl_usd": -75.36,
+      "return_pct": -0.72,
+      "max_drawdown_pct": 1.58
+    },
+    {
+      "month": "2025-09",
+      "start_equity": 10442.09,
+      "end_equity": 10510.07,
+      "pnl_usd": 67.98,
+      "return_pct": 0.65,
+      "max_drawdown_pct": 0.91
+    },
+    {
+      "month": "2025-10",
+      "start_equity": 10514.36,
+      "end_equity": 10464.19,
+      "pnl_usd": -50.17,
+      "return_pct": -0.48,
+      "max_drawdown_pct": 2.11
+    },
+    {
+      "month": "2025-11",
+      "start_equity": 10464.07,
+      "end_equity": 10266.06,
+      "pnl_usd": -198.01,
+      "return_pct": -1.89,
+      "max_drawdown_pct": 2.85
+    },
+    {
+      "month": "2025-12",
+      "start_equity": 10220.42,
+      "end_equity": 10230.19,
+      "pnl_usd": 9.77,
+      "return_pct": 0.1,
+      "max_drawdown_pct": 0.86
+    },
+    {
+      "month": "2026-01",
+      "start_equity": 10232.55,
+      "end_equity": 10127.22,
+      "pnl_usd": -105.33,
+      "return_pct": -1.03,
+      "max_drawdown_pct": 2.02
+    },
+    {
+      "month": "2026-02",
+      "start_equity": 10134.18,
+      "end_equity": 10012.24,
+      "pnl_usd": -121.94,
+      "return_pct": -1.2,
+      "max_drawdown_pct": 1.65
+    },
+    {
+      "month": "2026-03",
+      "start_equity": 10020.08,
+      "end_equity": 10021.28,
+      "pnl_usd": 1.19,
+      "return_pct": 0.01,
+      "max_drawdown_pct": 1.03
+    },
+    {
+      "month": "2026-04",
+      "start_equity": 10015.71,
+      "end_equity": 10108.38,
+      "pnl_usd": 92.67,
+      "return_pct": 0.93,
+      "max_drawdown_pct": 0.41
+    },
+    {
+      "month": "2026-05",
+      "start_equity": 10111.17,
+      "end_equity": 10082.37,
+      "pnl_usd": -28.8,
+      "return_pct": -0.28,
+      "max_drawdown_pct": 1.01
+    },
+    {
+      "month": "2026-06",
+      "start_equity": 10081.1,
+      "end_equity": 9918.85,
+      "pnl_usd": -162.24,
+      "return_pct": -1.61,
+      "max_drawdown_pct": 1.62
+    },
+    {
+      "month": "2026-07",
+      "start_equity": 9924.63,
+      "end_equity": 9965.27,
+      "pnl_usd": 40.65,
+      "return_pct": 0.41,
+      "max_drawdown_pct": 0.44
+    },
+    {
+      "month": "2026-08",
+      "start_equity": 9966.78,
+      "end_equity": 10133.28,
+      "pnl_usd": 166.5,
+      "return_pct": 1.67,
+      "max_drawdown_pct": 0.36
+    },
+    {
+      "month": "2026-09",
+      "start_equity": 10130.04,
+      "end_equity": 10194.71,
+      "pnl_usd": 64.67,
+      "return_pct": 0.64,
+      "max_drawdown_pct": 0.59
+    }
+  ],
+  "regime_distribution_pct": {
+    "BULL_TREND": 24.7,
+    "BEAR_TREND": 21.6,
+    "CHOPPY_MEAN_REVERT": 41.2,
+    "HIGH_VOL_CHAOS": 12.4
+  },
+  "species_benchmarks": {
+    "MOMENTUM_TREND": {
+      "name": "Momentum Trend Following",
+      "species": "MOMENTUM_TREND",
+      "total_return_pct": -74.03,
+      "annualized_sharpe": -1.67,
+      "sortino_ratio": -2.13,
+      "max_drawdown_pct": 81.18,
+      "calmar_ratio": -0.82,
+      "win_rate_pct": 47.6,
+      "profit_factor": 0.94,
+      "total_trades": 2406
+    },
+    "MEAN_REVERSION": {
+      "name": "Mean Reversion / BB Fade",
+      "species": "MEAN_REVERSION",
+      "total_return_pct": -70.33,
+      "annualized_sharpe": -1.51,
+      "sortino_ratio": -1.7,
+      "max_drawdown_pct": 72.31,
+      "calmar_ratio": -0.83,
+      "win_rate_pct": 50.9,
+      "profit_factor": 0.95,
+      "total_trades": 1721
+    },
+    "BREAKOUT_VOLATILITY": {
+      "name": "Volatility Breakout",
+      "species": "BREAKOUT_VOLATILITY",
+      "total_return_pct": -47.38,
+      "annualized_sharpe": -1.9,
+      "sortino_ratio": -1.05,
+      "max_drawdown_pct": 48.81,
+      "calmar_ratio": -0.65,
+      "win_rate_pct": 44.1,
+      "profit_factor": 0.82,
+      "total_trades": 1672
+    },
+    "REGIME_ADAPTIVE": {
+      "name": "Regime Adaptive Hybrid",
+      "species": "REGIME_ADAPTIVE",
+      "total_return_pct": -84.68,
+      "annualized_sharpe": -2.46,
+      "sortino_ratio": -2.84,
+      "max_drawdown_pct": 87.44,
+      "calmar_ratio": -1.07,
+      "win_rate_pct": 49.6,
+      "profit_factor": 0.91,
+      "total_trades": 2419
+    }
+  }
+}

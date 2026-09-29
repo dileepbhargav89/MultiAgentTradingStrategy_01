@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-09-29T21:21:07.621449+00:00",
+  "cycles_count": 252,
+  "champion": {
+    "strategy_id": null,
+    "genome": null,
+    "species": null,
+    "last_retrain_time": null
+  },
+  "portfolio": {
+    "cash": 9890.07,
+    "high_water_mark": 10049.45,
+    "drawdown_pct": 0.0159
+  },
+  "positions": [],
+  "brackets": [],
+  "agent_states": {
+    "data_quality": "HALTED",
+    "risk_tier": "GREEN",
+    "execution_agent": "HEALTHY"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "initial_equity": 10000.0,
+  "current_cash": 9890.073498029795,
+  "unrealized_pnl": 0.0,
+  "high_water_mark": 10049.454444617277,
+  "current_exposure_usd": 3576.0755,
+  "daily_start_equity": 9894.483698029793,
+  "daily_reset_date": "2026-09-26",
+  "weekly_start_equity": 10000.0,
+  "weekly_reset_key": "2026-W39",
+  "monthly_start_equity": 10000.0,
+  "monthly_reset_key": "2026-09",
+  "consecutive_losses": 9,
+  "consecutive_recovery_wins": 0,
+  "cooldown_until": "2026-09-26T13:33:29.536182+00:00",
+  "recovery_entered_at": null,
+  "open_positions": [],
+  "last_saved": "2026-09-26T11:33:29.536182+00:00"
+}

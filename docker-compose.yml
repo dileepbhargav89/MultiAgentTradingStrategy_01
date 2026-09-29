@@ -1,0 +1,23 @@
+services:
+  strategyone:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: strategyone_platform
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - BINANCE_API_KEY=${BINANCE_API_KEY:-}
+      - BINANCE_API_SECRET=${BINANCE_API_SECRET:-}
+      - TRADING_MODE=${TRADING_MODE:-PAPER}
+      - RISK_MAX_DRAWDOWN_LIMIT_PCT=2.0
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
