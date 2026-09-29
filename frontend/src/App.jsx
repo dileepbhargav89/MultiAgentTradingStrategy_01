@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Network, Crosshair, BarChart3, Building2, 
+  Briefcase, Network, Crosshair, BarChart3, Building2, 
   Terminal, Sparkles, RefreshCw, Layers, TrendingUp
 } from 'lucide-react';
+import CustomerBusinessHub from './components/CustomerBusinessHub';
 import AgentNetwork from './components/AgentNetwork';
 import PositionLadder from './components/PositionLadder';
 import BacktestWorkbench from './components/BacktestWorkbench';
 import InstitutionalSuite from './components/InstitutionalSuite';
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState('agents');
+  const [activeTab, setActiveTab] = useState('business');
   const [btcPrice, setBtcPrice] = useState(65120.45);
   const [currentTime, setCurrentTime] = useState(new Date().toUTCString());
 
@@ -41,7 +42,7 @@ export default function App() {
       }}>
         {/* Brand & Mode */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }} onClick={() => setActiveTab('business')}>
             <div style={{ 
               width: '36px', 
               height: '36px', 
@@ -77,13 +78,36 @@ export default function App() {
 
         {/* Center: Interactive Tab Switcher */}
         <div style={{ display: 'flex', background: 'rgba(255, 255, 255, 0.03)', padding: '4px', borderRadius: '10px', border: '1px solid var(--border-color)', gap: '4px' }}>
+          
+          <button 
+            onClick={() => setActiveTab('business')}
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '7px', 
+              padding: '8px 15px', 
+              borderRadius: '8px', 
+              border: 'none', 
+              background: activeTab === 'business' ? 'linear-gradient(135deg, #2563EB, #1D4ED8)' : 'transparent',
+              color: activeTab === 'business' ? '#FFFFFF' : 'var(--text-sub)',
+              fontSize: '13px',
+              fontWeight: '700',
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              boxShadow: activeTab === 'business' ? '0 4px 12px rgba(37, 99, 235, 0.35)' : 'none'
+            }}
+          >
+            <Briefcase size={15} />
+            Executive Hub
+          </button>
+
           <button 
             onClick={() => setActiveTab('agents')}
             style={{ 
               display: 'flex', 
               alignItems: 'center', 
-              gap: '8px', 
-              padding: '8px 16px', 
+              gap: '7px', 
+              padding: '8px 15px', 
               borderRadius: '8px', 
               border: 'none', 
               background: activeTab === 'agents' ? '#2563EB' : 'transparent',
@@ -95,8 +119,8 @@ export default function App() {
               boxShadow: activeTab === 'agents' ? '0 4px 12px rgba(37, 99, 235, 0.35)' : 'none'
             }}
           >
-            <Network size={16} />
-            Agent Consensus Network
+            <Network size={15} />
+            Agent Consensus
           </button>
 
           <button 
@@ -104,8 +128,8 @@ export default function App() {
             style={{ 
               display: 'flex', 
               alignItems: 'center', 
-              gap: '8px', 
-              padding: '8px 16px', 
+              gap: '7px', 
+              padding: '8px 15px', 
               borderRadius: '8px', 
               border: 'none', 
               background: activeTab === 'execution' ? '#2563EB' : 'transparent',
@@ -117,8 +141,8 @@ export default function App() {
               boxShadow: activeTab === 'execution' ? '0 4px 12px rgba(37, 99, 235, 0.35)' : 'none'
             }}
           >
-            <Crosshair size={16} />
-            Trade Execution & Ladder
+            <Crosshair size={15} />
+            Execution & Ladder
           </button>
 
           <button 
@@ -126,8 +150,8 @@ export default function App() {
             style={{ 
               display: 'flex', 
               alignItems: 'center', 
-              gap: '8px', 
-              padding: '8px 16px', 
+              gap: '7px', 
+              padding: '8px 15px', 
               borderRadius: '8px', 
               border: 'none', 
               background: activeTab === 'backtest' ? '#2563EB' : 'transparent',
@@ -139,8 +163,8 @@ export default function App() {
               boxShadow: activeTab === 'backtest' ? '0 4px 12px rgba(37, 99, 235, 0.35)' : 'none'
             }}
           >
-            <BarChart3 size={16} />
-            2-Year Walk-Forward Backtest
+            <BarChart3 size={15} />
+            2-Year Backtest
           </button>
 
           <button 
@@ -148,8 +172,8 @@ export default function App() {
             style={{ 
               display: 'flex', 
               alignItems: 'center', 
-              gap: '8px', 
-              padding: '8px 16px', 
+              gap: '7px', 
+              padding: '8px 15px', 
               borderRadius: '8px', 
               border: 'none', 
               background: activeTab === 'institutional' ? '#10B981' : 'transparent',
@@ -161,8 +185,8 @@ export default function App() {
               boxShadow: activeTab === 'institutional' ? '0 4px 12px rgba(16, 185, 129, 0.35)' : 'none'
             }}
           >
-            <Building2 size={16} />
-            Institutional & Due Diligence Suite
+            <Building2 size={15} />
+            Institutional Suite
           </button>
         </div>
 
@@ -191,6 +215,7 @@ export default function App() {
 
       {/* Main App Content View */}
       <main style={{ flex: 1, padding: '24px 28px', maxWidth: '1680px', width: '100%', margin: '0 auto' }}>
+        {activeTab === 'business' && <CustomerBusinessHub onSelectTab={setActiveTab} />}
         {activeTab === 'agents' && <AgentNetwork />}
         {activeTab === 'execution' && <PositionLadder />}
         {activeTab === 'backtest' && <BacktestWorkbench />}
