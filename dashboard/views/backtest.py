@@ -5,8 +5,6 @@ import numpy as np
 import pandas as pd
 import streamlit as st
 
-from models.tear_sheet import TearSheetReport
-
 
 def render_backtest_view(snapshot: Dict[str, Any]) -> None:
     """Renders the historical backtesting simulation and tear-sheet analytics view."""

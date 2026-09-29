@@ -108,7 +108,9 @@ class SystemOrchestrator:
     def _on_regime_change(self, regime_data: Any) -> None:
         """Forces an out-of-band GA retraining cycle when a volatility regime change is detected."""
         if self.mode != OrchestratorMode.BACKTEST:
-            logger.warning("SystemOrchestrator: Regime change detected! Queuing immediate GA retraining.")
+            logger.warning(
+                f"SystemOrchestrator: Regime change to {regime_data} detected! Queuing immediate GA retraining."
+            )
             self.last_retrain_time = None
 
     def recover_state(self) -> bool:

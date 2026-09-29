@@ -7,7 +7,6 @@ from loguru import logger
 
 from core.events import (
     EVENT_EXECUTION_REPORT,
-    EVENT_ORDER_CANCELLED,
     EVENT_ORDER_FILLED,
     EVENT_ORDER_SUBMITTED,
     EVENT_POSITION_CLOSED,
